@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app='app'>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./public/style.css" media="screen"  charset="utf-8">
+
+    <title></title>
+  </head>
+  <body ng-controller='mainCtrl'>
+    <div class="menu">
+      <h1>Movie</h1>
+      <div>
+        <input type="text" name="name" ng-model='test'>
+        <input type="button" value="search" ng-click='moviefunc(test)'>
+      </div>
+
+    </div>
+
+
+
+
+
+    <div class="parent-container">
+      <div class="movies-container">
+        <!-- <input type="text" name="name" ng-model='movieId'>
+        <input type="button" value="search" ng-click='secondfunc(movieId)'> -->
+
+
+
+
+
+
+          <div class="single-movie" ng-repeat='movvie in displayMovies'>
+            <h2 ng-click='secondfunc(movvie.imdbID)' class="title">{{movvie.Title}}<year>({{movvie.Year}})</year></h2>
+
+            <img class="moviePreview" src="http://img.omdbapi.com/?i={{movvie.imdbID}}&h=200&apikey={{apiKey}}"/>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js" charset="utf-8"></script>
+    <script src="./public/bundle.js" charset="utf-8"></script>
+
+  </body>
+</html>

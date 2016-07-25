@@ -1,23 +1,13 @@
 * {
   font: 'Lato'; }
 
-.menu {
-  height: 10vh;
-  background-color: #00796B;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 2rem; }
-
 .parent-container {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row; }
 
 .movies-container {
-  width: 25vw;
-  outline: 1px solid black; }
+  width: 25vw; }
 
 .title {
   color: #0E76BC;
@@ -29,17 +19,7 @@
   cursor: pointer; }
 
 .single-movie {
-  position: relative;
-  height: 15vh; }
-
-year {
-  color: black;
-  font-size: .5rem; }
-
-.moviePreview {
-  position: absolute;
-  right: 0;
-  top: 0; }
+  position: relative; }
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,

@@ -2,16 +2,20 @@
   font: 'Lato'
 }
 
-.menu{
-  height: 10vh;
-  background-color: #00796B;
-  color: white;
-  display: flex;
-  justify-content:space-between;
-  align-items: center;
-  font-size: 2rem;
+.fa-search{
+
 }
 
+// .menu{
+//   height: 10vh;
+//   background-color: #00796B;
+//   color: white;
+//   display: flex;
+//   justify-content:space-between;
+//   align-items: center;
+//   font-size: 2rem;
+// }
+//
 .parent-container{
   display: flex;
   flex-wrap: wrap;
@@ -20,9 +24,8 @@
 
 .movies-container{
   width: 25vw;
-  outline: 1px solid black;
 }
-
+//
 .title{
   color: #0E76BC;
   font-size: 1.2rem;
@@ -32,21 +35,20 @@
 .title:hover{
   opacity: .7;
   cursor: pointer;
-
 }
+
 .single-movie{
   position: relative;
-  height: 15vh;
 }
-
-year{
-  color: black;
-  font-size: .5rem;
-}
-
-.moviePreview{
-  position: absolute;
-  right: 0;
-  top: 0;
-  // width: 10vh;
-}
+//
+// year{
+//   color: black;
+//   font-size: .5rem;
+// }
+//
+// .moviePreview{
+//   position: absolute;
+//   right: 0;
+//   top: 0;
+//   // width: 10vh;
+// }

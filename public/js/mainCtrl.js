@@ -1,12 +1,17 @@
 // INITILIZE CONTROLLER
 // ============================================================
-angular.module("app").controller("mainCtrl", function($scope, mainServ) {
+angular.module("app").controller("mainCtrl", function($scope, mainServ, $state) {
     $scope.apiKey = '8ff7b56';
 
+
     $scope.moviefunc = function(title){
-      //set background gif
+      // $state.href("/search", { search: title });
+
+        $('.movies-container').hide();
+        $('#loading').show();
       mainServ.getMovie(title).then(function(response){
-        //set background off
+        $('.movies-container').show();
+        $('#loading').hide();
         $scope.displayMovies = response;
 
       });
@@ -24,6 +29,18 @@ angular.module("app").controller("mainCtrl", function($scope, mainServ) {
       console.log(input);
     };
 
+    $(window).load(function() {
+     $('#loading').hide();
+  });
+
+  $('.clicker').on('click',function(){
+    $state.go('search');
+    setTimeout(function () {
+      var input = document.getElementById('selecter');
+      input.focus();
+      input.select();
+    }, 10);
+  });
 
 
 });

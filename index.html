@@ -3,94 +3,30 @@
 
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="./public/style.css" media="screen" charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./reset.css" media="screen" charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-
-    <body>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-
-        <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Asap' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="./public/style.css" media="screen" title="no title" charset="utf-8">
+    <title>movvie.io</title>
 </head>
 
-<body ng-controller='mainCtrl'>
-  <!-- This is the header -->
-    <div class="menu">
-        <h1>Movvie.io</h1>
-        <div>
-            <form ng-submit='moviefunc(test)'>
-                <input type="text" placeholder="search movie" ng-model='test'>
-                <!-- <input type="button" value="search" ng-click='moviefunc(test)'> -->
-                <i class="fa fa-search" aria-hidden="true" ng-click='moviefunc(test)'></i>
-            </form>
-        </div>
-    </div>
-
-<!--This is where i repeat over the data  -->
-
-    <div class="parent-container">
-        <div class="movies-container">
-            <div class="single-movie" ng-repeat='movvie in displayMovies'>
+<!-- <body ng-controller='mainCtrl'> -->
+<body>
 
 
-
-              <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModal">See more info</button>
-              <figure>
-                  <img ng-click='secondfunc(movvie.imdbID)'class="image-modal" src="http://img.omdbapi.com/?i={{movvie.imdbID}}&h=200&apikey={{apiKey}}" alt="" data-toggle="modal" data-target="#myModal" />
-
-
-                  <h2 ng-click='secondfunc(movvie.imdbID)' class="title" data-toggle="modal" data-target="#myModal">{{movvie.Title}}  <year>({{movvie.Year}})</year></h2>
-              </figure>
-              <!-- Modal -->
-              <div id="myModal" class="modal fade" role="dialog">
-                  <div class="modal-dialog">
-
-                      <!-- Modal content-->
-                      <div class="modal-content">
-                          <div class="modal-header">
-                              <button type="button" class="close" data-dismiss="modal">&times;</button>
-                              <h4 class="modal-title">{{movvie.Title}}</h4>
-                          </div>
-                          <div class="modal-body flex">
-                              <img class="image-modal" src="http://img.omdbapi.com/?i={{movvie.imdbID}}&h=200&apikey={{apiKey}}" alt="" data-toggle="modal" data-target="#myModal" />
-                              <p>There's no internet here, no thanks! maybe for a week.</p>
-                          </div>
-                          <div class="modal-footer">
-                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                          </div>
-                      </div>
-
-                  </div>
-              </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-            </div>
-        </div>
-    </div>
-
-
-
-
-
-
+    <ui-view></ui-view>
 
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js" charset="utf-8"></script>
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.0/angular-ui-router.js'></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="./public/bundle.js" charset="utf-8"></script>
+
 
 </body>
 

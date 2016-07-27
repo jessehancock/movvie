@@ -24,7 +24,7 @@ angular.module("app").service("mainServ", function($http, $q) {
             console.log(response.data);
             var resultsArr = response.data.Search;
             for (var i = resultsArr.length - 1; i > -1; i--) {
-              if (resultsArr[i].Poster === 'N/A') resultsArr.splice(i, 1);
+              if (resultsArr[i].Poster === 'N/A')resultsArr.splice(i, 1);
             }
             returnData.push(...resultsArr);
           }
@@ -39,7 +39,7 @@ angular.module("app").service("mainServ", function($http, $q) {
     this.getDisc = function(id) {
         return $http({
             method: 'GET',
-            url: searchID + id
+            url: searchID  + id + '&tomatoes=true'
         }).then(function(response) {
             console.log(response);
             return response.data;

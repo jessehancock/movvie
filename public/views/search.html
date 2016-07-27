@@ -1,0 +1,55 @@
+<header-directive></header-directive>
+<!--This is where i repeat over the data  -->
+<div id="loading">
+    <img id="loading-image" src="./public/images/box.gif" alt="Loading..." />
+</div>
+
+
+<div class="parent-container">
+    <div class="movies-container">
+        <div  ng-repeat='movvie in displayMovies'>
+
+
+
+            <figure class="single-movie">
+                <!-- <h2 ng-click='secondfunc(movvie.imdbID)' class="title" data-toggle="modal" data-target="#myModal">{{movvie.Title}}  <year>({{movvie.Year}})</year></h2> -->
+
+                <img ng-click='secondfunc(movvie.imdbID)' class="image-modal" ng-src="http://img.omdbapi.com/?i={{movvie.imdbID}}&h=350&apikey={{apiKey}}" alt="" data-toggle="modal" data-target="#myModal" />
+            </figure>
+
+
+
+            <!-- Modal -->
+            <div id="myModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h3 class="modal-title">{{displayMovie.Title}}</h4>
+                        </div>
+                        <div class="modal-body flex">
+                          <img class="image-modal" src="http://img.omdbapi.com/?i={{displayMovie.imdbID}}&h=200&apikey={{apiKey}}" alt="" data-toggle="modal" data-target="#myModal" />
+
+                          <div class="rating-container">
+
+                            <img class='ratingImg' src="./public/images/meta.png" alt="" />
+                            <h3>{{displayMovie.Metascore}}</h3>
+
+                            <img class='ratingImg' src="./public/images/imdb.jpg" alt="" />
+                            <h3>{{displayMovie.imdbRating}}</h3>
+
+                            <img class='ratingImg' src="./public/images/tomatoes.jpg" alt="" />
+                            <h3>{{displayMovie.tomatoMeter}}</h3>
+                        </div>
+                        <h2>{{displayMovie.Rated}}</h2>
+                        <p>{{displayMovie.Plot}}</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

@@ -1,0 +1,32 @@
+.padding-top{
+  margin-top: 10vh;
+}
+
+.steve-jobs{
+  background-image: url('../../public/images/jobs-face.png');
+  background-repeat: no-repeat;
+  background-position: 75%;
+}
+
+.intro{
+  // font-size: 5vh;
+  width: 50vw;
+  height: 90vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  padding: 10px;
+  logo{
+    font-size: 5vh;
+    font-family: 'Lobster';
+  }
+  underline{
+    text-decoration: underline;
+    font-weight: bold;
+  }
+  italic{
+    font-style: italic;
+  }
+}

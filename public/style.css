@@ -1,66 +1,133 @@
-* {
-  font: 'Lato'; }
 
-.parent-container {
+.padding-top {
+  margin-top: 10vh; }
+
+.steve-jobs {
+  background-image: url("../../public/images/jobs-face.png");
+  background-repeat: no-repeat;
+  background-position: 75%; }
+
+.intro {
+  width: 50vw;
+  height: 90vh;
+  text-align: center;
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: row; }
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  padding: 10px; }
+  .intro logo {
+    font-size: 5vh;
+    font-family: 'Lobster'; }
+  .intro underline {
+    text-decoration: underline;
+    font-weight: bold; }
+  .intro italic {
+    font-style: italic; }
 
-.movies-container {
-  width: 25vw; }
+#loading {
+  width: 100%;
+  height: 100%;
+  top: 200px;
+  position: fixed;
+  opacity: 0.8;
+  z-index: 99;
+  text-align: center;
+  display: none; }
 
-.title {
-  color: #0E76BC;
-  font-size: 1.2rem;
-  font-weight: 3200; }
-
-.title:hover {
-  opacity: .7;
-  cursor: pointer; }
+.menu {
+  height: 10vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: lightgrey 1px solid;
+  position: fixed;
+  z-index: 100;
+  background-color: white;
+  width: 100vw;
+  padding-left: 4vw;
+  padding-right: 4vw;
+  top: 0; }
+  .menu h1 {
+    font-size: 5vh;
+    font-family: 'Lobster'; }
+  .menu input:focus {
+    outline: none; }
+  .menu input {
+    border: none;
+    width: 25vw;
+    margin-right: 1px; }
+  .menu .search-input {
+    outline: lightgrey 1px solid;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 2.4vh; }
+  .menu .under-menu {
+    display: flex; }
+    .menu .under-menu h4 {
+      padding: 10px;
+      padding-top: 26px;
+      cursor: pointer;
+      font-size: 2.5vh; }
 
 .single-movie {
   position: relative; }
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-  box-sizing: border-box; }
+.single-movie:hover {
+  position: relative;
+  opacity: .7;
+  cursor: pointer; }
 
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-  display: block; }
+.ratingImg {
+  max-height: 40px; }
 
-body {
-  line-height: 1; }
+.rating-container {
+  display: flex;
+  justify-content: space-between;
+  align-content: center; }
+  .rating-container h3 {
+    margin: 0; }
 
-ol, ul {
-  list-style: none; }
+.single-movie {
+  max-width: 50vw;
+  display: inline-block;
+  text-align: center;
+  padding: 1px; }
 
-blockquote, q {
-  quotes: none; }
+.single-movie:hover {
+  opacity: .5; }
 
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: '';
-  content: none; }
+.movies-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  padding-top: 10vh; }
 
-table {
-  border-collapse: collapse;
-  border-spacing: 0; }
+@media (max-width: 769px) {
+  .fa-search {
+    float: right;
+    padding-top: 5px; }
+  .menu {
+    height: 15vh;
+    display: block; }
+    .menu .search-input {
+      margin-top: 0px;
+      margin-bottom: 0px; }
+    .menu input {
+      width: 85vw; }
+    .menu .under-menu h4 {
+      margin-bottom: 0; }
+  .movies-container {
+    padding-top: 15vh; }
+  .padding-top {
+    margin-top: 15vh; }
+  .intro {
+    align-content: flex-end;
+    justify-content: flex-end;
+    height: 80vh;
+    width: 100vw; }
+  .steve-jobs {
+    background-image: url("../../public/images/jobs-face.png");
+    background-position: 50% 8%; } }

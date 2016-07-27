@@ -1,16 +1,47 @@
-
 // INITILIZE APP
 // ============================================================
-angular.module("app", []);
+angular.module("app", ['ui.router']).config(["$stateProvider", "$urlRouterProvider", function ($stateProvider, $urlRouterProvider) {
+  $urlRouterProvider.otherwise('/home');
+  $stateProvider.state('home', {
+    url: '/home',
+    templateUrl: './public/views/home.html',
+    controller: 'mainCtrl'
+  }).state('about', {
+    url: '/about',
+    templateUrl: './public/views/about.html',
+    controller: 'mainCtrl'
+  }).state('contact', {
+    url: '/contact',
+    templateUrl: './public/views/contact.html',
+    controller: 'mainCtrl'
+  }).state('search', {
+    url: '/search/:search',
+    templateUrl: './public/views/search.html',
+    controller: 'mainCtrl'
+  });
+}]);
+// INITILIZE DIRECTIVE
+// ============================================================
+angular.module("app").directive('headerDirective', function () {
+  return {
+    restrict: 'EA',
+    templateUrl: './public/views/headerTmpl.html',
+    controller: 'mainCtrl'
+  };
+});
 // INITILIZE CONTROLLER
 // ============================================================
-angular.module("app").controller("mainCtrl", ["$scope", "mainServ", function ($scope, mainServ) {
+angular.module("app").controller("mainCtrl", ["$scope", "mainServ", "$state", function ($scope, mainServ, $state) {
   $scope.apiKey = '8ff7b56';
 
   $scope.moviefunc = function (title) {
-    //set background gif
+    // $state.href("/search", { search: title });
+
+    $('.movies-container').hide();
+    $('#loading').show();
     mainServ.getMovie(title).then(function (response) {
-      //set background off
+      $('.movies-container').show();
+      $('#loading').hide();
       $scope.displayMovies = response;
     });
   };
@@ -26,6 +57,19 @@ angular.module("app").controller("mainCtrl", ["$scope", "mainServ", function ($s
   $scope.hello = function (input) {
     console.log(input);
   };
+
+  $(window).load(function () {
+    $('#loading').hide();
+  });
+
+  $('.clicker').on('click', function () {
+    $state.go('search');
+    setTimeout(function () {
+      var input = document.getElementById('selecter');
+      input.focus();
+      input.select();
+    }, 10);
+  });
 }]);
 // INITILIZE SERVICE
 // ============================================================
@@ -67,7 +111,7 @@ angular.module("app").service("mainServ", ["$http", "$q", function ($http, $q) {
   this.getDisc = function (id) {
     return $http({
       method: 'GET',
-      url: searchID + id
+      url: searchID + id + '&tomatoes=true'
     }).then(function (response) {
       console.log(response);
       return response.data;

@@ -16,11 +16,10 @@ angular.module("app").service("mainServ", function($http, $q) {
           method: 'GET',
           url: searchURL + title + '&type=movie&page=' + counter
         }).then(function(response) {
-          if (response.data.Response === "False") {
-            console.log(counter, returnData);
+          if (response.data.Response === "False" || counter === 1) {
             defer.resolve(returnData);
           }
-          if(response.data.Search.length) {
+          else if(response.data.Search.length) {
             console.log(response.data);
             var resultsArr = response.data.Search;
             for (var i = resultsArr.length - 1; i > -1; i--) {
@@ -28,8 +27,13 @@ angular.module("app").service("mainServ", function($http, $q) {
             }
             returnData.push(...resultsArr);
           }
+
           counter++;
-          filterData();
+          console.log(counter);
+          if (counter < 30) {
+            filterData();
+          }
+          else defer.resolve(returnData);
         });
       };
     filterData();

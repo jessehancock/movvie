@@ -1,8 +1,12 @@
 // INITILIZE APP
 // ============================================================
 angular.module("app", ['ui.router']).config(["$stateProvider", "$urlRouterProvider", function ($stateProvider, $urlRouterProvider) {
-  $urlRouterProvider.otherwise('/home');
-  $stateProvider.state('home', {
+  $urlRouterProvider.otherwise('/search/:search');
+  $stateProvider.state('search', {
+    url: '/search/:search',
+    templateUrl: './public/views/search.html',
+    controller: 'mainCtrl'
+  }).state('home', {
     url: '/home',
     templateUrl: './public/views/home.html',
     controller: 'mainCtrl'
@@ -13,10 +17,6 @@ angular.module("app", ['ui.router']).config(["$stateProvider", "$urlRouterProvid
   }).state('contact', {
     url: '/contact',
     templateUrl: './public/views/contact.html',
-    controller: 'mainCtrl'
-  }).state('search', {
-    url: '/search/:search',
-    templateUrl: './public/views/search.html',
     controller: 'mainCtrl'
   });
 }]);
@@ -36,7 +36,7 @@ angular.module("app").controller("mainCtrl", ["$scope", "mainServ", "$state", fu
 
   $scope.moviefunc = function (title) {
     // $state.href("/search", { search: title });
-
+    $('.steve-jobs').hide();
     $('.movies-container').hide();
     $('#loading').show();
     mainServ.getMovie(title).then(function (response) {
@@ -88,11 +88,9 @@ angular.module("app").service("mainServ", ["$http", "$q", function ($http, $q) {
         method: 'GET',
         url: searchURL + title + '&type=movie&page=' + counter
       }).then(function (response) {
-        if (response.data.Response === "False") {
-          console.log(counter, returnData);
+        if (response.data.Response === "False" || counter === 1) {
           defer.resolve(returnData);
-        }
-        if (response.data.Search.length) {
+        } else if (response.data.Search.length) {
           console.log(response.data);
           var resultsArr = response.data.Search;
           for (var i = resultsArr.length - 1; i > -1; i--) {
@@ -100,8 +98,12 @@ angular.module("app").service("mainServ", ["$http", "$q", function ($http, $q) {
           }
           returnData.push(...resultsArr);
         }
+
         counter++;
-        filterData();
+        console.log(counter);
+        if (counter < 30) {
+          filterData();
+        } else defer.resolve(returnData);
       });
     };
     filterData();

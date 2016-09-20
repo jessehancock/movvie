@@ -6,7 +6,7 @@ angular.module("app").controller("mainCtrl", function($scope, mainServ, $state) 
 
     $scope.moviefunc = function(title){
       // $state.href("/search", { search: title });
-
+        $('.steve-jobs').hide();
         $('.movies-container').hide();
         $('#loading').show();
       mainServ.getMovie(title).then(function(response){

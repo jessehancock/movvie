@@ -1,51 +1,33 @@
 <!DOCTYPE html>
 <html ng-app='app'>
-  <head>
+
+<head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="./public/style.css" media="screen"  charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./reset.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Asap' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="./public/style.css" media="screen" title="no title" charset="utf-8">
+    <title>movvie.io</title>
+</head>
 
-    <title></title>
-  </head>
-  <body ng-controller='mainCtrl'>
-    <div class="menu">
-      <h1>Movie</h1>
-      <div>
-        <input type="text" name="name" ng-model='test'>
-        <input type="button" value="search" ng-click='moviefunc(test)'>
-      </div>
-
-    </div>
-
+<!-- <body ng-controller='mainCtrl'> -->
+<body>
 
 
-
-
-    <div class="parent-container">
-      <div class="movies-container">
-        <!-- <input type="text" name="name" ng-model='movieId'>
-        <input type="button" value="search" ng-click='secondfunc(movieId)'> -->
-
-
-
-
-
-
-          <div class="single-movie" ng-repeat='movvie in displayMovies'>
-            <h2 ng-click='secondfunc(movvie.imdbID)' class="title">{{movvie.Title}}<year>({{movvie.Year}})</year></h2>
-
-            <img class="moviePreview" src="http://img.omdbapi.com/?i={{movvie.imdbID}}&h=200&apikey={{apiKey}}"/>
-        </div>
-      </div>
-    </div>
-
-
-
-
+    <ui-view></ui-view>
 
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js" charset="utf-8"></script>
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.0/angular-ui-router.js'></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="./public/bundle.js" charset="utf-8"></script>
 
-  </body>
+
+</body>
+
 </html>

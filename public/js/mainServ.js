@@ -16,20 +16,22 @@ angular.module("app").service("mainServ", function($http, $q) {
           method: 'GET',
           url: searchURL + title + '&type=movie&page=' + counter
         }).then(function(response) {
-          if (response.data.Response === "False") {
-            console.log(counter, returnData);
+          if (response.data.Response === "False" || counter === 1) {
             defer.resolve(returnData);
           }
-          if(response.data.Search.length) {
-            console.log(response.data);
+          else if(response.data.Search.length) {
             var resultsArr = response.data.Search;
             for (var i = resultsArr.length - 1; i > -1; i--) {
-              if (resultsArr[i].Poster === 'N/A') resultsArr.splice(i, 1);
+              if (resultsArr[i].Poster === 'N/A')resultsArr.splice(i, 1);
             }
             returnData.push(...resultsArr);
           }
+
           counter++;
-          filterData();
+          if (counter < 30) {
+            filterData();
+          }
+          else defer.resolve(returnData);
         });
       };
     filterData();
@@ -39,14 +41,11 @@ angular.module("app").service("mainServ", function($http, $q) {
     this.getDisc = function(id) {
         return $http({
             method: 'GET',
-            url: searchID + id
+            url: searchID  + id + '&tomatoes=true'
         }).then(function(response) {
             console.log(response);
             return response.data;
         });
     };
-
-    // OTHER FUNCTIONS
-    // ============================================================
 
 });

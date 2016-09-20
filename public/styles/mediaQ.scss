@@ -1,0 +1,41 @@
+@media (max-width: 769px){
+  .fa-search{
+    float: right;
+    padding-top: 5px;
+  }
+  .menu{
+    height: 15vh;
+    display:block;
+    .search-input{
+      margin-top: 0px;
+      margin-bottom: 0px;
+
+    }
+    input{
+      width: 85vw;
+    }
+    .under-menu{
+      h4{
+        margin-bottom: 0;
+      }
+    }
+  }
+  .movies-container{
+    padding-top: 15vh;
+  }
+  .padding-top{
+    margin-top: 15vh;
+  }
+
+  .intro{
+    align-content:flex-end;
+    justify-content:flex-end;
+    height: 80vh;
+    width: 100vw;
+  }
+  .steve-jobs{
+    background-image: url('../../public/images/jobs-face.png');
+    background-position: 50% 8%;
+  }
+
+}

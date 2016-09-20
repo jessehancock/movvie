@@ -1,9 +1,9 @@
 // INITILIZE APP
 // ============================================================
 angular.module("app", ['ui.router']).config(["$stateProvider", "$urlRouterProvider", function ($stateProvider, $urlRouterProvider) {
-  $urlRouterProvider.otherwise('/search/:search');
+  $urlRouterProvider.otherwise('/');
   $stateProvider.state('search', {
-    url: '/search/:search',
+    url: '/',
     templateUrl: './public/views/search.html',
     controller: 'mainCtrl'
   }).state('home', {

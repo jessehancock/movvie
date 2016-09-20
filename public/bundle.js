@@ -97,7 +97,6 @@ angular.module("app").service("mainServ", ["$http", "$q", function ($http, $q) {
           }
           returnData.push(...resultsArr);
         }
-
         counter++;
         if (counter < 16) {
           filterData();
@@ -113,7 +112,6 @@ angular.module("app").service("mainServ", ["$http", "$q", function ($http, $q) {
       method: 'GET',
       url: searchID + id + '&tomatoes=true'
     }).then(function (response) {
-      console.log(response);
       return response.data;
     });
   };

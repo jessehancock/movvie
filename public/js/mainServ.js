@@ -16,7 +16,7 @@ angular.module("app").service("mainServ", function($http, $q) {
           method: 'GET',
           url: searchURL + title + '&type=movie&page=' + counter
         }).then(function(response) {
-          if (response.data.Response === "False" || counter === 1) {
+          if (response.data.Response === "False" || counter === 15) {
             defer.resolve(returnData);
           }
           else if(response.data.Search.length) {
@@ -28,7 +28,7 @@ angular.module("app").service("mainServ", function($http, $q) {
           }
 
           counter++;
-          if (counter < 30) {
+          if (counter < 16) {
             filterData();
           }
           else defer.resolve(returnData);

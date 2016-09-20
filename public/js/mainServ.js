@@ -3,8 +3,8 @@
 angular.module("app").service("mainServ", function($http, $q) {
     // CRUD FUNCTIONS
     // ============================================================
-    var searchURL = 'http://www.omdbapi.com/?s=';
-    var searchID = 'http://www.omdbapi.com/?i=';
+    var searchURL = 'https://www.omdbapi.com/?s=';
+    var searchID = 'https://www.omdbapi.com/?i=';
 
 
     this.getMovie = function(title) {

@@ -76,8 +76,8 @@ angular.module("app").controller("mainCtrl", ["$scope", "mainServ", "$state", fu
 angular.module("app").service("mainServ", ["$http", "$q", function ($http, $q) {
   // CRUD FUNCTIONS
   // ============================================================
-  var searchURL = 'http://www.omdbapi.com/?s=';
-  var searchID = 'http://www.omdbapi.com/?i=';
+  var searchURL = 'https://www.omdbapi.com/?s=';
+  var searchID = 'https://www.omdbapi.com/?i=';
 
   this.getMovie = function (title) {
     var counter = 1;

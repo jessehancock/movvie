@@ -91,7 +91,6 @@ angular.module("app").service("mainServ", ["$http", "$q", function ($http, $q) {
         if (response.data.Response === "False" || counter === 1) {
           defer.resolve(returnData);
         } else if (response.data.Search.length) {
-          console.log(response.data);
           var resultsArr = response.data.Search;
           for (var i = resultsArr.length - 1; i > -1; i--) {
             if (resultsArr[i].Poster === 'N/A') resultsArr.splice(i, 1);
@@ -100,7 +99,6 @@ angular.module("app").service("mainServ", ["$http", "$q", function ($http, $q) {
         }
 
         counter++;
-        console.log(counter);
         if (counter < 30) {
           filterData();
         } else defer.resolve(returnData);
@@ -119,7 +117,4 @@ angular.module("app").service("mainServ", ["$http", "$q", function ($http, $q) {
       return response.data;
     });
   };
-
-  // OTHER FUNCTIONS
-  // ============================================================
 }]);
